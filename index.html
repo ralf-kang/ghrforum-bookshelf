@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 글로벌인재포럼 발표 자료 디지털 서재</title>
+  <title>📚 글로벌인재포럼 & 지식 공유 디지털 서재</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       --accent-blue: #3b82f6;
       --accent-purple: #8b5cf6;
       --accent-emerald: #10b981;
+      --accent-rose: #f43f5e;
     }
     * {
       box-sizing: border-box;
@@ -33,16 +34,16 @@
       padding-bottom: 80px;
     }
     header {
-      background: rgba(13, 15, 20, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(13, 15, 20, 0.9);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 18px 28px;
+      padding: 16px 28px;
     }
     .header-container {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -54,9 +55,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      cursor: pointer;
     }
     .brand-icon {
-      font-size: 30px;
+      font-size: 32px;
       background: linear-gradient(135deg, #f59e0b, #ec4899);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -76,7 +78,7 @@
       align-items: center;
       gap: 10px;
       flex: 1;
-      max-width: 580px;
+      max-width: 520px;
     }
     .search-input {
       flex: 1;
@@ -93,16 +95,71 @@
       border-color: #6366f1;
       box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
     }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-add-pdf {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+    }
+    .btn-add-pdf:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+    }
+    .btn-share-collection {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-share-collection:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      max-width: 1440px;
+      margin: 20px auto 10px;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
     .day-tabs {
       display: flex;
       gap: 6px;
       background: #15161c;
-      padding: 4px;
-      border-radius: 10px;
+      padding: 5px;
+      border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-x: auto;
     }
     .day-tab-btn {
-      padding: 7px 16px;
+      padding: 8px 16px;
       border-radius: 8px;
       font-size: 13px;
       font-weight: 600;
@@ -111,49 +168,58 @@
       color: var(--text-sub);
       cursor: pointer;
       transition: 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .day-tab-btn .badge-pill {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-size: 11px;
     }
     .day-tab-btn.active {
       background: #4f46e5;
       color: #fff;
     }
-    .stats-bar {
-      max-width: 1400px;
-      margin: 24px auto 8px;
-      padding: 0 24px;
+    .day-tab-btn.active .badge-pill {
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .stats-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      gap: 12px;
+      font-size: 13px;
       color: var(--text-sub);
     }
     .stats-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background: rgba(255, 255, 255, 0.06);
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
-      font-size: 13px;
     }
     .stats-badge strong {
       color: #60a5fa;
     }
 
-    /* Bookshelf Shelf Styling */
+    /* Bookshelf Grid */
     .bookshelf-stage {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 16px 24px;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 36px;
     }
     .shelf-section {
       background: linear-gradient(180deg, rgba(30, 32, 42, 0.6) 0%, rgba(20, 22, 28, 0.9) 100%);
       border-radius: 16px;
       padding: 24px;
       border: 1px solid rgba(255, 255, 255, 0.07);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
     .shelf-header {
       display: flex;
@@ -162,6 +228,8 @@
       margin-bottom: 20px;
       padding-bottom: 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .shelf-title {
       font-size: 18px;
@@ -174,7 +242,7 @@
     .shelf-badge {
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 6px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -182,8 +250,8 @@
     .badge-vista { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
     .badge-walker { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
     .badge-grand { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-web { background: rgba(244, 63, 94, 0.2); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
 
-    /* Book Cards Grid */
     .books-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -191,7 +259,6 @@
       align-items: stretch;
     }
 
-    /* Individual Book Item */
     .book-card {
       background: #1b1c24;
       border-radius: 12px;
@@ -207,8 +274,14 @@
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.2);
       border-color: rgba(99, 102, 241, 0.4);
     }
+    .book-card.highlight {
+      animation: pulseBorder 1.5s infinite alternate;
+    }
+    @keyframes pulseBorder {
+      from { border-color: #6366f1; box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
+      to { border-color: #ec4899; box-shadow: 0 0 25px rgba(236, 72, 153, 0.8); }
+    }
 
-    /* Book Top Banner (Spine Color) */
     .book-banner {
       padding: 16px 18px;
       position: relative;
@@ -223,6 +296,7 @@
     .banner-c4 { background: linear-gradient(135deg, #7c2d12 0%, #451a03 100%); }
     .banner-c5 { background: linear-gradient(135deg, #164e63 0%, #082f49 100%); }
     .banner-c6 { background: linear-gradient(135deg, #3730a3 0%, #1e1b4b 100%); }
+    .banner-web { background: linear-gradient(135deg, #be123c 0%, #4c0519 100%); }
 
     .book-id-tag {
       font-size: 11px;
@@ -279,6 +353,16 @@
       color: #94a3b8;
       line-height: 1.45;
     }
+    .web-summary {
+      font-size: 12px;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 8px 10px;
+      border-radius: 6px;
+      border-left: 3px solid #f43f5e;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
     .book-meta {
       font-size: 11px;
       color: #64748b;
@@ -291,6 +375,7 @@
     .book-actions {
       display: flex;
       gap: 8px;
+      margin-top: 10px;
     }
     .btn-read {
       flex: 1;
@@ -310,21 +395,163 @@
     .btn-read:hover {
       background: #4338ca;
     }
-    .btn-orig {
+    .btn-icon-action {
       padding: 9px 12px;
       background: rgba(255, 255, 255, 0.06);
-      color: #94a3b8;
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       font-size: 13px;
-      text-decoration: none;
+      cursor: pointer;
       transition: all 0.2s;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
     }
-    .btn-orig:hover {
-      background: rgba(255, 255, 255, 0.12);
+    .btn-icon-action:hover {
+      background: rgba(255, 255, 255, 0.15);
       color: #fff;
+    }
+    .btn-delete {
+      color: #f87171;
+    }
+    .btn-delete:hover {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    /* Modal Styling */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-card {
+      background: #1e2029;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 540px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      animation: modalSlideUp 0.25s ease-out;
+    }
+    @keyframes modalSlideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .modal-header h2 {
+      font-size: 19px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+    }
+    .form-label span.req {
+      color: #f43f5e;
+    }
+    .form-control {
+      width: 100%;
+      background: #15161c;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: #6366f1;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #4338ca;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(30, 32, 42, 0.95);
+      border: 1px solid #4f46e5;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-size: 14px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      z-index: 2000;
+      animation: fadeIn 0.2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .empty-msg {
@@ -340,31 +567,44 @@
 
 <header>
   <div class="header-container">
-    <div class="brand">
+    <div class="brand" onclick="location.href='#'">
       <div class="brand-icon">📚</div>
       <div class="brand-title">
-        <h1>글로벌인재포럼 발표자료 서재 (Bookshelf)</h1>
-        <p>Global HR Forum 2026 Presentation Archive</p>
+        <h1>글로벌인재포럼 & 지식 공유 디지털 서재</h1>
+        <p>Global HR Forum & Shared Web PDF Archive</p>
       </div>
     </div>
 
     <div class="search-filter-box">
-      <input type="text" id="searchInput" class="search-input" placeholder="🔍 연사명, 소속, 주제, 키워드 검색...">
-      <div class="day-tabs">
-        <button class="day-tab-btn active" data-filter="ALL">전체</button>
-        <button class="day-tab-btn" data-filter="DAY1">DAY 1</button>
-        <button class="day-tab-btn" data-filter="DAY2">DAY 2</button>
-      </div>
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 연사명, 소속, 주제, 추천글 검색...">
+    </div>
+
+    <div class="header-actions">
+      <button class="btn-add-pdf" id="openAddModalBtn">
+        ➕ 인터넷 PDF 공유하기
+      </button>
+      <button class="btn-share-collection" id="shareMyCollectionBtn" title="내가 추가한 공유 목록을 링크로 만들어 팀원에게 전달">
+        📤 내 공유 서재 링크
+      </button>
     </div>
   </div>
 </header>
 
-<div class="stats-bar">
-  <div class="stats-badge">
-    총 보유 자료: <strong id="itemCountDisplay">66</strong> 권
+<div class="controls-bar">
+  <div class="day-tabs">
+    <button class="day-tab-btn active" data-filter="ALL">전체 보기 <span class="badge-pill" id="badgeAll">0</span></button>
+    <button class="day-tab-btn" data-filter="DAY1">DAY 1 (포럼) <span class="badge-pill" id="badgeDay1">0</span></button>
+    <button class="day-tab-btn" data-filter="DAY2">DAY 2 (포럼) <span class="badge-pill" id="badgeDay2">0</span></button>
+    <button class="day-tab-btn" data-filter="WEB">🌐 공유된 웹 PDF <span class="badge-pill" id="badgeWeb">0</span></button>
   </div>
-  <div class="stats-badge">
-    총 용량: <strong>106.71 MB</strong>
+
+  <div class="stats-container">
+    <div class="stats-badge">
+      총 표시 자료: <strong id="itemCountDisplay">0</strong> 권
+    </div>
+    <div class="stats-badge">
+      포럼 원본: <strong>66권 (106.7 MB)</strong>
+    </div>
   </div>
 </div>
 
@@ -372,23 +612,213 @@
   <!-- Dynamic Shelves -->
 </main>
 
-<script>
-  const catalog = [{"id": 1, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "09:00 - 09:30", "place": "", "session_num": "기조연설", "session_title": "EVERYTHING AI: 생각을 넘어 행동으로", "speaker_name": "로버트 플레이터", "speaker_role": "", "speaker_affil": "연사 前 보스턴다이내믹스 CEO", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13611793004655.pdf", "rel_path": "pdf_files/DAY1_기조연설/01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조연설/01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "filename": "01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "folder_name": "DAY1_기조연설", "size_bytes": 3339882, "size_mb": "3.19 MB"}, {"id": 2, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "09:40 - 10:20", "place": "", "session_num": "특별대담 1", "session_title": "사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치", "speaker_name": "닉 보스트롬", "speaker_role": "", "speaker_affil": "연사 거시전략연구 이니셔티브 창립자 겸 수석연구원 /『슈퍼인텔리전스』저자[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13761793006604.pdf", "rel_path": "pdf_files/DAY1_특별대담 1/02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별대담 1/02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "filename": "02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "folder_name": "DAY1_특별대담 1", "size_bytes": 327056, "size_mb": "0.31 MB"}, {"id": 3, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "10:20 - 11:00", "place": "", "session_num": "특별대담 2", "session_title": "인공지능 시대, 교육은 어떻게 변화해야 하는가?", "speaker_name": "라파엘 레이프", "speaker_role": "", "speaker_affil": "연사 매사추세츠공과대학교(MIT) 명예총장 (前 총장)", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13641793006626.pdf", "rel_path": "pdf_files/DAY1_특별대담 2/03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별대담 2/03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "filename": "03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "folder_name": "DAY1_특별대담 2", "size_bytes": 309037, "size_mb": "0.29 MB"}, {"id": 4, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "신지현", "speaker_role": "", "speaker_affil": "맥킨지앤드컴퍼니 한국오피스 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13621793006584.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 398141, "size_mb": "0.38 MB"}, {"id": 5, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "칼 베네딕트 프레이", "speaker_role": "", "speaker_affil": "영국 옥스퍼드대학교 교수 / 미래 일자리 프로그램 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15211793006642.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 312146, "size_mb": "0.30 MB"}, {"id": 6, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "이지연", "speaker_role": "", "speaker_affil": "마이크로소프트 한국 & 아세안 인사 부문 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13841793682037.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 3131533, "size_mb": "2.99 MB"}, {"id": 7, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "백영재", "speaker_role": "", "speaker_affil": "딥스탠딩 파트너스 대표 파트너", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13881793006715.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/07_백영재_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/07_백영재_새로운 인재의 조건.pdf", "filename": "07_백영재_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 309165, "size_mb": "0.29 MB"}, {"id": 8, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "손해인", "speaker_role": "", "speaker_affil": "업스테이지 AI 교육 부문 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13891793006723.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/08_손해인_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/08_손해인_새로운 인재의 조건.pdf", "filename": "08_손해인_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 443828, "size_mb": "0.42 MB"}, {"id": 9, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "정지훈", "speaker_role": "", "speaker_affil": "아시아2G캐피탈 창립파트너", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15011793006733.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/09_정지훈_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/09_정지훈_새로운 인재의 조건.pdf", "filename": "09_정지훈_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 326126, "size_mb": "0.31 MB"}, {"id": 10, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "르네 키질체크", "speaker_role": "", "speaker_affil": "미국 코넬대학교 정보과학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13791793010620.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 1584737, "size_mb": "1.51 MB"}, {"id": 11, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "배노조", "speaker_role": "", "speaker_affil": "삼성글로벌리서치 인재경영연구실 부사장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13931793669829.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 695952, "size_mb": "0.66 MB"}, {"id": 12, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "이재영", "speaker_role": "", "speaker_affil": "이화여자대학교 교육공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13941793006794.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 393493, "size_mb": "0.38 MB"}, {"id": 13, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "김명신", "speaker_role": "", "speaker_affil": "LG AI연구원 신뢰안전사무국 총괄", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13851793006655.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 445649, "size_mb": "0.43 MB"}, {"id": 14, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "강민구", "speaker_role": "", "speaker_affil": "법무법인 도울 대표변호사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13731793599363.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 496158, "size_mb": "0.47 MB"}, {"id": 15, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "송대섭", "speaker_role": "", "speaker_affil": "네이버 AI Safety Policy 리더", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13861793009828.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 2283126, "size_mb": "2.18 MB"}, {"id": 16, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "허준", "speaker_role": "", "speaker_affil": "연세대학교 건설환경공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13901793009976.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 5182272, "size_mb": "4.94 MB"}, {"id": 17, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "조남준", "speaker_role": "", "speaker_affil": "싱가포르 난양공과대학교 재료공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13651793006765.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 589772, "size_mb": "0.56 MB"}, {"id": 18, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "권흥순", "speaker_role": "", "speaker_affil": "대전테크노파크 대전앵커센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13911793006774.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 358754, "size_mb": "0.34 MB"}, {"id": 19, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "한요셉", "speaker_role": "", "speaker_affil": "한국개발연구원(KDI) 재정·사회정책연구부 교육·노동혁신연구팀장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13961793740546.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 2955388, "size_mb": "2.82 MB"}, {"id": 20, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "오삼일", "speaker_role": "", "speaker_affil": "한국은행 조사국 팀장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13971793010937.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 933072, "size_mb": "0.89 MB"}, {"id": 21, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "정지운", "speaker_role": "", "speaker_affil": "한국직업능력연구원 데이터분석·성과확산센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13981793010981.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 1923750, "size_mb": "1.83 MB"}, {"id": 22, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "이승민", "speaker_role": "", "speaker_affil": "한국전자통신연구원 기술경제연구실 책임연구원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13871793006677.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 350855, "size_mb": "0.33 MB"}, {"id": 23, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "루카 베기아슈빌리", "speaker_role": "", "speaker_affil": "유네스코 AI윤리전문가네트워크(AIEB) AI 정책 컨설턴트", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13771793585461.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 1441033, "size_mb": "1.37 MB"}, {"id": 24, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "김혜일", "speaker_role": "", "speaker_affil": "카카오 디지털접근성책임자 (DAO)", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13751793009918.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 886700, "size_mb": "0.85 MB"}, {"id": 25, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "정두영", "speaker_role": "", "speaker_affil": "좌장/발표 KAIST 디지털인문사회과학부 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13631793010122.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/25_정두영_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/25_정두영_사회성과 공동체의 미래.pdf", "filename": "25_정두영_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 2605110, "size_mb": "2.48 MB"}, {"id": 26, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "정혜인", "speaker_role": "", "speaker_affil": "플리마인드 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13811793011229.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/26_정혜인_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/26_정혜인_사회성과 공동체의 미래.pdf", "filename": "26_정혜인_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 874580, "size_mb": "0.83 MB"}, {"id": 27, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "박주연", "speaker_role": "", "speaker_affil": "덕성여자대학교 교양대학 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13821793010170.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/27_박주연_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/27_박주연_사회성과 공동체의 미래.pdf", "filename": "27_박주연_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 1373952, "size_mb": "1.31 MB"}, {"id": 28, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "이일청", "speaker_role": "", "speaker_affil": "유엔사회개발연구소(UNRISD) 대외협력 총괄 및 선임연구조정관", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13781793690649.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/28_이일청_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/28_이일청_사회성과 공동체의 미래.pdf", "filename": "28_이일청_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 773708, "size_mb": "0.74 MB"}, {"id": 29, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "손화철", "speaker_role": "", "speaker_affil": "한동대학교 글로벌리더십학부 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14001793011035.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 846561, "size_mb": "0.81 MB"}, {"id": 30, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "김하나", "speaker_role": "", "speaker_affil": "작가", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14021793006822.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 375160, "size_mb": "0.36 MB"}, {"id": 31, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "이고운", "speaker_role": "", "speaker_affil": "크래프톤 PUBG 프랜차이즈 전략팀 매니저", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14011793011131.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 389672, "size_mb": "0.37 MB"}, {"id": 32, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "정정선", "speaker_role": "", "speaker_affil": "한국IBM 인사부 인사총괄 상무", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14041793078142.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 271309, "size_mb": "0.26 MB"}, {"id": 33, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "니나 요르덴", "speaker_role": "", "speaker_affil": "영국 케임브리지대학교 베넷 공공정책스쿨 교수[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14061793077473.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 314570, "size_mb": "0.30 MB"}, {"id": 34, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "이재원", "speaker_role": "", "speaker_affil": "현대오토에버 경영지원실 실장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14051793078203.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 1592652, "size_mb": "1.52 MB"}, {"id": 35, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "워커홀(1F)", "session_num": "B-1세션", "session_title": "AI 시대 고등교육의 혁신과 인재 양성", "speaker_name": "황성현", "speaker_role": "", "speaker_affil": "가천대학교 스타트업칼리지 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14191793077496.pdf", "rel_path": "pdf_files/DAY2_B-1세션_워커홀(1F)/35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-1세션_워커홀(1F)/35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "filename": "35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "folder_name": "DAY2_B-1세션_워커홀(1F)", "size_bytes": 360076, "size_mb": "0.34 MB"}, {"id": 36, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "워커홀(1F)", "session_num": "B-1세션", "session_title": "AI 시대 고등교육의 혁신과 인재 양성", "speaker_name": "맹성현", "speaker_role": "", "speaker_affil": "KAIST 전산학부 명예교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14201793077508.pdf", "rel_path": "pdf_files/DAY2_B-1세션_워커홀(1F)/36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-1세션_워커홀(1F)/36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "filename": "36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "folder_name": "DAY2_B-1세션_워커홀(1F)", "size_bytes": 380528, "size_mb": "0.36 MB"}, {"id": 37, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "테런스 호", "speaker_role": "", "speaker_affil": "싱가포르 사회과학대학교(SUSS) 성인학습연구원 원장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13661793078414.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 1683812, "size_mb": "1.61 MB"}, {"id": 38, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "랄프 히피", "speaker_role": "", "speaker_affil": "유럽직업훈련연구센터(CEDEFOP) 연구위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14091793078288.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 1853028, "size_mb": "1.77 MB"}, {"id": 39, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "모니카 하켈", "speaker_role": "", "speaker_affil": "독일 직업교육연방연구소(BIBB) 직업교육훈련 체계·제도 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14641793078344.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 6521976, "size_mb": "6.22 MB"}, {"id": 40, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "김유철", "speaker_role": "", "speaker_affil": "LG AI연구원 전략부문장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14111793077535.pdf", "rel_path": "pdf_files/DAY2_A-2세션/40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 343286, "size_mb": "0.33 MB"}, {"id": 41, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "마크 루이스", "speaker_role": "", "speaker_affil": "아마존웹서비스(AWS) 아시아태평양·일본 및 중국(APJC) 월드와이드 스페셜리스트 조직(WWSO) 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14811793077546.pdf", "rel_path": "pdf_files/DAY2_A-2세션/41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 319487, "size_mb": "0.30 MB"}, {"id": 42, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "김준환", "speaker_role": "", "speaker_affil": "신한금융지주 AX 디지털 상무", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14121793077560.pdf", "rel_path": "pdf_files/DAY2_A-2세션/42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 327437, "size_mb": "0.31 MB"}, {"id": 43, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "유주연", "speaker_role": "", "speaker_affil": "서울교육청 학생역량·혁신교육과 장학사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14221793078527.pdf", "rel_path": "pdf_files/DAY2_B-2세션/43_유주연_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/43_유주연_교실의 변화, 함께 만드는 미래.pdf", "filename": "43_유주연_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 1090698, "size_mb": "1.04 MB"}, {"id": 44, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "강경욱", "speaker_role": "", "speaker_affil": "전주 효림초등학교 교사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14231793078559.pdf", "rel_path": "pdf_files/DAY2_B-2세션/44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "filename": "44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 3648666, "size_mb": "3.48 MB"}, {"id": 45, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "김승일", "speaker_role": "", "speaker_affil": "모두의연구소 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14241793078593.pdf", "rel_path": "pdf_files/DAY2_B-2세션/45_김승일_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/45_김승일_교실의 변화, 함께 만드는 미래.pdf", "filename": "45_김승일_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 4304878, "size_mb": "4.11 MB"}, {"id": 46, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "김봄이", "speaker_role": "", "speaker_affil": "한국직업능력연구원 청장년직업능력연구센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14361793078662.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 724295, "size_mb": "0.69 MB"}, {"id": 47, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "숀 도허티", "speaker_role": "", "speaker_affil": "보스턴칼리지 교육 및 정책학 교수[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13691793077579.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 297410, "size_mb": "0.28 MB"}, {"id": 48, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "이정재", "speaker_role": "", "speaker_affil": "현대경제연구원 교육본부 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14611793077590.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 341675, "size_mb": "0.33 MB"}, {"id": 49, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "천장현", "speaker_role": "", "speaker_affil": "머서코리아 컨설팅 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14141793079612.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 20601673, "size_mb": "19.65 MB"}, {"id": 50, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "김지현", "speaker_role": "", "speaker_affil": "SK SUPEX AI위원회 부사장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14151793079701.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 9961308, "size_mb": "9.50 MB"}, {"id": 51, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "안잘리 메논", "speaker_role": "", "speaker_affil": "시벨코 유럽·중동·아프리카(EMEA) 인사(HR) 부사장[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15811793585423.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 860173, "size_mb": "0.82 MB"}, {"id": 52, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "조병영", "speaker_role": "", "speaker_affil": "한양대학교 국어교육과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14261793077724.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 346592, "size_mb": "0.33 MB"}, {"id": 53, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "최승필", "speaker_role": "", "speaker_affil": "공독서가 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14271793077731.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 464564, "size_mb": "0.44 MB"}, {"id": 54, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "함유선", "speaker_role": "", "speaker_affil": "인천교육청 정책기획조정관 장학사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14281793077745.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 347167, "size_mb": "0.33 MB"}, {"id": 55, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "보만 스님", "speaker_role": "", "speaker_affil": "대한불교조계종 반야선원 승려", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14381793079749.pdf", "rel_path": "pdf_files/DAY2_C-3세션/55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 454104, "size_mb": "0.43 MB"}, {"id": 56, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "최진영", "speaker_role": "", "speaker_affil": "소설가", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14391793585814.pdf", "rel_path": "pdf_files/DAY2_C-3세션/56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 2560071, "size_mb": "2.44 MB"}, {"id": 57, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "노명우", "speaker_role": "", "speaker_affil": "아주대학교 사회학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14401793077801.pdf", "rel_path": "pdf_files/DAY2_C-3세션/57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 414917, "size_mb": "0.40 MB"}, {"id": 58, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "유주원", "speaker_role": "", "speaker_affil": "애드쉴드 창업자 겸 공동대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14071793079914.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 4290090, "size_mb": "4.09 MB"}, {"id": 59, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "제이슨 디멜로", "speaker_role": "", "speaker_affil": "미국 로욜라메리마운트대학교(LMU) 경영대학 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14081793079951.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 1346528, "size_mb": "1.28 MB"}, {"id": 60, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "명승은", "speaker_role": "", "speaker_affil": "벤처스퀘어 대표이사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15241793080007.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 620425, "size_mb": "0.59 MB"}, {"id": 61, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "천현득", "speaker_role": "", "speaker_affil": "서울대학교 과학학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14311793077833.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 350089, "size_mb": "0.33 MB"}, {"id": 62, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "변순용", "speaker_role": "", "speaker_affil": "서울교육대학교 평생교육원 원장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14321793080376.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 6018961, "size_mb": "5.74 MB"}, {"id": 63, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "문정욱", "speaker_role": "", "speaker_affil": "정보통신정책연구원 인공지능정책연구실 실장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14331793077843.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 346323, "size_mb": "0.33 MB"}, {"id": 64, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "제인 오", "speaker_role": "", "speaker_affil": "미국 항공우주국(NASA) 제트추진연구소 수석연구위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14301793077820.pdf", "rel_path": "pdf_files/DAY2_C-4세션/64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 287603, "size_mb": "0.27 MB"}, {"id": 65, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "임지성", "speaker_role": "", "speaker_affil": "싱잉비틀 공동창업자", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14421793077854.pdf", "rel_path": "pdf_files/DAY2_C-4세션/65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 321355, "size_mb": "0.31 MB"}, {"id": 66, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "박재민", "speaker_role": "", "speaker_affil": "배우 겸 방송인, 스포츠 해설위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15411793080525.pdf", "rel_path": "pdf_files/DAY2_C-4세션/66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 1269873, "size_mb": "1.21 MB"}];
+<!-- Add PDF Modal -->
+<div class="modal-backdrop" id="addPdfModal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h2>🌐 인터넷 PDF / 좋은 글 공유 등록</h2>
+      <button class="modal-close" id="closeAddModalBtn">&times;</button>
+    </div>
+    <form id="addPdfForm">
+      <div class="form-group">
+        <label class="form-label">PDF 또는 문서 웹 링크 <span class="req">*</span></label>
+        <input type="url" id="inputPdfUrl" class="form-control" placeholder="https://example.com/document.pdf" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">문서 / 발표 제목 <span class="req">*</span></label>
+        <input type="text" id="inputPdfTitle" class="form-control" placeholder="예: 생성형 AI 시대의 일과 조직 변화 가이드" required>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <div class="form-group" style="flex: 1;">
+          <label class="form-label">작성자 / 발표자</label>
+          <input type="text" id="inputPdfSpeaker" class="form-control" placeholder="예: 홍길동">
+        </div>
+        <div class="form-group" style="flex: 1;">
+          <label class="form-label">출처 / 소속 기관</label>
+          <input type="text" id="inputPdfAffil" class="form-control" placeholder="예: OpenAI, HBR, 서울대 등">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">카테고리 / 분야</label>
+        <select id="inputPdfCategory" class="form-control">
+          <option value="AI & 미래기술">🤖 AI & 미래기술</option>
+          <option value="HR & 리더십">👥 HR & 인재·리더십</option>
+          <option value="비즈니스 & 경영">📈 비즈니스 & 경영 혁신</option>
+          <option value="교육 & 자기개발">🎓 교육 & 학습 생태계</option>
+          <option value="교양 & 에세이">📖 인문 교양 & 에세이</option>
+          <option value="추천 아티클">⭐ 기타 추천 아티클</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">추천 이유 / 한줄 요약</label>
+        <textarea id="inputPdfSummary" class="form-control" rows="3" placeholder="이 글이나 자료를 동료들에게 추천하는 이유나 핵심 포인트를 적어주세요."></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" id="cancelAddModalBtn">취소</button>
+        <button type="submit" class="btn-primary">책장에 꽂기 📚</button>
+      </div>
+    </form>
+  </div>
+</div>
 
+<!-- Toast -->
+<div class="toast" id="toastBox">
+  <span id="toastMsg">알림 메시지</span>
+</div>
+
+<script>
+  // Initial Forum Data (66 items)
+  const initialCatalog = [{"id": 1, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "09:00 - 09:30", "place": "", "session_num": "기조연설", "session_title": "EVERYTHING AI: 생각을 넘어 행동으로", "speaker_name": "로버트 플레이터", "speaker_role": "", "speaker_affil": "연사 前 보스턴다이내믹스 CEO", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13611793004655.pdf", "rel_path": "pdf_files/DAY1_기조연설/01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조연설/01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "filename": "01_로버트 플레이터_EVERYTHING AI_ 생각을 넘어 행동으로.pdf", "folder_name": "DAY1_기조연설", "size_bytes": 3339882, "size_mb": "3.19 MB"}, {"id": 2, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "09:40 - 10:20", "place": "", "session_num": "특별대담 1", "session_title": "사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치", "speaker_name": "닉 보스트롬", "speaker_role": "", "speaker_affil": "연사 거시전략연구 이니셔티브 창립자 겸 수석연구원 /『슈퍼인텔리전스』저자[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13761793006604.pdf", "rel_path": "pdf_files/DAY1_특별대담 1/02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별대담 1/02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "filename": "02_닉 보스트롬_사람에 투자하라 — AI 시대, 철학이 말하는 인재의 가치.pdf", "folder_name": "DAY1_특별대담 1", "size_bytes": 327056, "size_mb": "0.31 MB"}, {"id": 3, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "10:20 - 11:00", "place": "", "session_num": "특별대담 2", "session_title": "인공지능 시대, 교육은 어떻게 변화해야 하는가?", "speaker_name": "라파엘 레이프", "speaker_role": "", "speaker_affil": "연사 매사추세츠공과대학교(MIT) 명예총장 (前 총장)", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13641793006626.pdf", "rel_path": "pdf_files/DAY1_특별대담 2/03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별대담 2/03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "filename": "03_라파엘 레이프_인공지능 시대, 교육은 어떻게 변화해야 하는가_.pdf", "folder_name": "DAY1_특별대담 2", "size_bytes": 309037, "size_mb": "0.29 MB"}, {"id": 4, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "신지현", "speaker_role": "", "speaker_affil": "맥킨지앤드컴퍼니 한국오피스 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13621793006584.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "04_신지현_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 398141, "size_mb": "0.38 MB"}, {"id": 5, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "칼 베네딕트 프레이", "speaker_role": "", "speaker_affil": "영국 옥스퍼드대학교 교수 / 미래 일자리 프로그램 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15211793006642.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "05_칼 베네딕트 프레이_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 312146, "size_mb": "0.30 MB"}, {"id": 6, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "비스타홀(B2)", "session_num": "기조세션 1", "session_title": "고용 대전환: AI로 바뀌는 일의 미래", "speaker_name": "이지연", "speaker_role": "", "speaker_affil": "마이크로소프트 한국 & 아세안 인사 부문 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13841793682037.pdf", "rel_path": "pdf_files/DAY1_기조세션 1_비스타홀(B2)/06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 1_비스타홀(B2)/06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "filename": "06_이지연_고용 대전환_ AI로 바뀌는 일의 미래.pdf", "folder_name": "DAY1_기조세션 1_비스타홀(B2)", "size_bytes": 3131533, "size_mb": "2.99 MB"}, {"id": 7, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "백영재", "speaker_role": "", "speaker_affil": "딥스탠딩 파트너스 대표 파트너", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13881793006715.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/07_백영재_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/07_백영재_새로운 인재의 조건.pdf", "filename": "07_백영재_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 309165, "size_mb": "0.29 MB"}, {"id": 8, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "손해인", "speaker_role": "", "speaker_affil": "업스테이지 AI 교육 부문 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13891793006723.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/08_손해인_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/08_손해인_새로운 인재의 조건.pdf", "filename": "08_손해인_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 443828, "size_mb": "0.42 MB"}, {"id": 9, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "워커홀(1F)", "session_num": "기조세션 4", "session_title": "새로운 인재의 조건", "speaker_name": "정지훈", "speaker_role": "", "speaker_affil": "아시아2G캐피탈 창립파트너", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15011793006733.pdf", "rel_path": "pdf_files/DAY1_기조세션 4_워커홀(1F)/09_정지훈_새로운 인재의 조건.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 4_워커홀(1F)/09_정지훈_새로운 인재의 조건.pdf", "filename": "09_정지훈_새로운 인재의 조건.pdf", "folder_name": "DAY1_기조세션 4_워커홀(1F)", "size_bytes": 326126, "size_mb": "0.31 MB"}, {"id": 10, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "르네 키질체크", "speaker_role": "", "speaker_affil": "미국 코넬대학교 정보과학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13791793010620.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "10_르네 키질체크_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 1584737, "size_mb": "1.51 MB"}, {"id": 11, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "배노조", "speaker_role": "", "speaker_affil": "삼성글로벌리서치 인재경영연구실 부사장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13931793669829.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "11_배노조_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 695952, "size_mb": "0.66 MB"}, {"id": 12, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "11:10 - 12:40", "place": "그랜드홀(B1)", "session_num": "특별세션 1", "session_title": "AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가?", "speaker_name": "이재영", "speaker_role": "", "speaker_affil": "이화여자대학교 교육공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13941793006794.pdf", "rel_path": "pdf_files/DAY1_특별세션 1_그랜드홀(B1)/12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 1_그랜드홀(B1)/12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "filename": "12_이재영_AI가 답하는 세상, 무엇을 가르치고 평가해야 하는가_.pdf", "folder_name": "DAY1_특별세션 1_그랜드홀(B1)", "size_bytes": 393493, "size_mb": "0.38 MB"}, {"id": 13, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "김명신", "speaker_role": "", "speaker_affil": "LG AI연구원 신뢰안전사무국 총괄", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13851793006655.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "13_김명신_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 445649, "size_mb": "0.43 MB"}, {"id": 14, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "강민구", "speaker_role": "", "speaker_affil": "법무법인 도울 대표변호사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13731793599363.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "14_강민구_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 496158, "size_mb": "0.47 MB"}, {"id": 15, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 2", "session_title": "AI 시대, 국가 지속가능을 위한 사회시스템 변화", "speaker_name": "송대섭", "speaker_role": "", "speaker_affil": "네이버 AI Safety Policy 리더", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13861793009828.pdf", "rel_path": "pdf_files/DAY1_기조세션 2/15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 2/15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "filename": "15_송대섭_AI 시대, 국가 지속가능을 위한 사회시스템 변화.pdf", "folder_name": "DAY1_기조세션 2", "size_bytes": 2283126, "size_mb": "2.18 MB"}, {"id": 16, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "허준", "speaker_role": "", "speaker_affil": "연세대학교 건설환경공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13901793009976.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "16_허준_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 5182272, "size_mb": "4.94 MB"}, {"id": 17, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "조남준", "speaker_role": "", "speaker_affil": "싱가포르 난양공과대학교 재료공학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13651793006765.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "17_조남준_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 589772, "size_mb": "0.56 MB"}, {"id": 18, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "기조세션 5", "session_title": "지식 대체의 시대, 대학 고유의 가치", "speaker_name": "권흥순", "speaker_role": "", "speaker_affil": "대전테크노파크 대전앵커센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13911793006774.pdf", "rel_path": "pdf_files/DAY1_기조세션 5/18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 5/18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "filename": "18_권흥순_지식 대체의 시대, 대학 고유의 가치.pdf", "folder_name": "DAY1_기조세션 5", "size_bytes": 358754, "size_mb": "0.34 MB"}, {"id": 19, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "한요셉", "speaker_role": "", "speaker_affil": "한국개발연구원(KDI) 재정·사회정책연구부 교육·노동혁신연구팀장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13961793740546.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "19_한요셉_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 2955388, "size_mb": "2.82 MB"}, {"id": 20, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "오삼일", "speaker_role": "", "speaker_affil": "한국은행 조사국 팀장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13971793010937.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "20_오삼일_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 933072, "size_mb": "0.89 MB"}, {"id": 21, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "14:00 - 15:30", "place": "", "session_num": "특별세션 2", "session_title": "AI 시대, 한국 노동시장은 어떻게 변하고 있는가", "speaker_name": "정지운", "speaker_role": "", "speaker_affil": "한국직업능력연구원 데이터분석·성과확산센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13981793010981.pdf", "rel_path": "pdf_files/DAY1_특별세션 2/21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 2/21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "filename": "21_정지운_AI 시대, 한국 노동시장은 어떻게 변하고 있는가.pdf", "folder_name": "DAY1_특별세션 2", "size_bytes": 1923750, "size_mb": "1.83 MB"}, {"id": 22, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "이승민", "speaker_role": "", "speaker_affil": "한국전자통신연구원 기술경제연구실 책임연구원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13871793006677.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "22_이승민_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 350855, "size_mb": "0.33 MB"}, {"id": 23, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "루카 베기아슈빌리", "speaker_role": "", "speaker_affil": "유네스코 AI윤리전문가네트워크(AIEB) AI 정책 컨설턴트", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13771793585461.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "23_루카 베기아슈빌리_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 1441033, "size_mb": "1.37 MB"}, {"id": 24, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 3", "session_title": "기술은 기회인가, 불평등의 확대인가", "speaker_name": "김혜일", "speaker_role": "", "speaker_affil": "카카오 디지털접근성책임자 (DAO)", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13751793009918.pdf", "rel_path": "pdf_files/DAY1_기조세션 3/24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 3/24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "filename": "24_김혜일_기술은 기회인가, 불평등의 확대인가.pdf", "folder_name": "DAY1_기조세션 3", "size_bytes": 886700, "size_mb": "0.85 MB"}, {"id": 25, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "정두영", "speaker_role": "", "speaker_affil": "좌장/발표 KAIST 디지털인문사회과학부 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13631793010122.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/25_정두영_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/25_정두영_사회성과 공동체의 미래.pdf", "filename": "25_정두영_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 2605110, "size_mb": "2.48 MB"}, {"id": 26, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "정혜인", "speaker_role": "", "speaker_affil": "플리마인드 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13811793011229.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/26_정혜인_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/26_정혜인_사회성과 공동체의 미래.pdf", "filename": "26_정혜인_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 874580, "size_mb": "0.83 MB"}, {"id": 27, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "박주연", "speaker_role": "", "speaker_affil": "덕성여자대학교 교양대학 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13821793010170.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/27_박주연_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/27_박주연_사회성과 공동체의 미래.pdf", "filename": "27_박주연_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 1373952, "size_mb": "1.31 MB"}, {"id": 28, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "기조세션 6", "session_title": "사회성과 공동체의 미래", "speaker_name": "이일청", "speaker_role": "", "speaker_affil": "유엔사회개발연구소(UNRISD) 대외협력 총괄 및 선임연구조정관", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13781793690649.pdf", "rel_path": "pdf_files/DAY1_기조세션 6/28_이일청_사회성과 공동체의 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_기조세션 6/28_이일청_사회성과 공동체의 미래.pdf", "filename": "28_이일청_사회성과 공동체의 미래.pdf", "folder_name": "DAY1_기조세션 6", "size_bytes": 773708, "size_mb": "0.74 MB"}, {"id": 29, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "손화철", "speaker_role": "", "speaker_affil": "한동대학교 글로벌리더십학부 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14001793011035.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "29_손화철_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 846561, "size_mb": "0.81 MB"}, {"id": 30, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "김하나", "speaker_role": "", "speaker_affil": "작가", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14021793006822.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "30_김하나_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 375160, "size_mb": "0.36 MB"}, {"id": 31, "day_code": "DAY1", "day_title": "DAY 1 (2026.11.04 수)", "time": "16:00 - 17:30", "place": "", "session_num": "특별세션 3", "session_title": "지시하는 인간, 수행하는 AI: 자아 상실의 시대", "speaker_name": "이고운", "speaker_role": "", "speaker_affil": "크래프톤 PUBG 프랜차이즈 전략팀 매니저", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14011793011131.pdf", "rel_path": "pdf_files/DAY1_특별세션 3/31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY1_특별세션 3/31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "filename": "31_이고운_지시하는 인간, 수행하는 AI_ 자아 상실의 시대.pdf", "folder_name": "DAY1_특별세션 3", "size_bytes": 389672, "size_mb": "0.37 MB"}, {"id": 32, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "정정선", "speaker_role": "", "speaker_affil": "한국IBM 인사부 인사총괄 상무", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14041793078142.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "32_정정선_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 271309, "size_mb": "0.26 MB"}, {"id": 33, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "니나 요르덴", "speaker_role": "", "speaker_affil": "영국 케임브리지대학교 베넷 공공정책스쿨 교수[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14061793077473.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "33_니나 요르덴_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 314570, "size_mb": "0.30 MB"}, {"id": 34, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "비스타홀(B2)", "session_num": "A-1세션", "session_title": "AI를 더 신뢰하는 시대, 리더의 역할은?", "speaker_name": "이재원", "speaker_role": "", "speaker_affil": "현대오토에버 경영지원실 실장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14051793078203.pdf", "rel_path": "pdf_files/DAY2_A-1세션_비스타홀(B2)/34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-1세션_비스타홀(B2)/34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "filename": "34_이재원_AI를 더 신뢰하는 시대, 리더의 역할은_.pdf", "folder_name": "DAY2_A-1세션_비스타홀(B2)", "size_bytes": 1592652, "size_mb": "1.52 MB"}, {"id": 35, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "워커홀(1F)", "session_num": "B-1세션", "session_title": "AI 시대 고등교육의 혁신과 인재 양성", "speaker_name": "황성현", "speaker_role": "", "speaker_affil": "가천대학교 스타트업칼리지 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14191793077496.pdf", "rel_path": "pdf_files/DAY2_B-1세션_워커홀(1F)/35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-1세션_워커홀(1F)/35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "filename": "35_황성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "folder_name": "DAY2_B-1세션_워커홀(1F)", "size_bytes": 360076, "size_mb": "0.34 MB"}, {"id": 36, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "워커홀(1F)", "session_num": "B-1세션", "session_title": "AI 시대 고등교육의 혁신과 인재 양성", "speaker_name": "맹성현", "speaker_role": "", "speaker_affil": "KAIST 전산학부 명예교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14201793077508.pdf", "rel_path": "pdf_files/DAY2_B-1세션_워커홀(1F)/36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-1세션_워커홀(1F)/36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "filename": "36_맹성현_AI 시대 고등교육의 혁신과 인재 양성.pdf", "folder_name": "DAY2_B-1세션_워커홀(1F)", "size_bytes": 380528, "size_mb": "0.36 MB"}, {"id": 37, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "테런스 호", "speaker_role": "", "speaker_affil": "싱가포르 사회과학대학교(SUSS) 성인학습연구원 원장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13661793078414.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "37_테런스 호_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 1683812, "size_mb": "1.61 MB"}, {"id": 38, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "랄프 히피", "speaker_role": "", "speaker_affil": "유럽직업훈련연구센터(CEDEFOP) 연구위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14091793078288.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "38_랄프 히피_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 1853028, "size_mb": "1.77 MB"}, {"id": 39, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "09:00 - 10:30", "place": "그랜드홀(B1)", "session_num": "C-1세션", "session_title": "일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다", "speaker_name": "모니카 하켈", "speaker_role": "", "speaker_affil": "독일 직업교육연방연구소(BIBB) 직업교육훈련 체계·제도 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14641793078344.pdf", "rel_path": "pdf_files/DAY2_C-1세션_그랜드홀(B1)/39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-1세션_그랜드홀(B1)/39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "filename": "39_모니카 하켈_일자리 대전환기, 직업교육훈련의 존재 이유를 다시 묻다.pdf", "folder_name": "DAY2_C-1세션_그랜드홀(B1)", "size_bytes": 6521976, "size_mb": "6.22 MB"}, {"id": 40, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "김유철", "speaker_role": "", "speaker_affil": "LG AI연구원 전략부문장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14111793077535.pdf", "rel_path": "pdf_files/DAY2_A-2세션/40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "40_김유철_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 343286, "size_mb": "0.33 MB"}, {"id": 41, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "마크 루이스", "speaker_role": "", "speaker_affil": "아마존웹서비스(AWS) 아시아태평양·일본 및 중국(APJC) 월드와이드 스페셜리스트 조직(WWSO) 디렉터", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14811793077546.pdf", "rel_path": "pdf_files/DAY2_A-2세션/41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "41_마크 루이스_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 319487, "size_mb": "0.30 MB"}, {"id": 42, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "A-2세션", "session_title": "실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식", "speaker_name": "김준환", "speaker_role": "", "speaker_affil": "신한금융지주 AX 디지털 상무", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14121793077560.pdf", "rel_path": "pdf_files/DAY2_A-2세션/42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-2세션/42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "filename": "42_김준환_실리콘밸리의 새로운 규칙, AI 에이전트가 바꾸는 일의 방식.pdf", "folder_name": "DAY2_A-2세션", "size_bytes": 327437, "size_mb": "0.31 MB"}, {"id": 43, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "유주연", "speaker_role": "", "speaker_affil": "서울교육청 학생역량·혁신교육과 장학사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14221793078527.pdf", "rel_path": "pdf_files/DAY2_B-2세션/43_유주연_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/43_유주연_교실의 변화, 함께 만드는 미래.pdf", "filename": "43_유주연_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 1090698, "size_mb": "1.04 MB"}, {"id": 44, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "강경욱", "speaker_role": "", "speaker_affil": "전주 효림초등학교 교사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14231793078559.pdf", "rel_path": "pdf_files/DAY2_B-2세션/44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "filename": "44_강경욱_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 3648666, "size_mb": "3.48 MB"}, {"id": 45, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "B-2세션", "session_title": "교실의 변화, 함께 만드는 미래", "speaker_name": "김승일", "speaker_role": "", "speaker_affil": "모두의연구소 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14241793078593.pdf", "rel_path": "pdf_files/DAY2_B-2세션/45_김승일_교실의 변화, 함께 만드는 미래.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-2세션/45_김승일_교실의 변화, 함께 만드는 미래.pdf", "filename": "45_김승일_교실의 변화, 함께 만드는 미래.pdf", "folder_name": "DAY2_B-2세션", "size_bytes": 4304878, "size_mb": "4.11 MB"}, {"id": 46, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "김봄이", "speaker_role": "", "speaker_affil": "한국직업능력연구원 청장년직업능력연구센터 센터장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14361793078662.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "46_김봄이_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 724295, "size_mb": "0.69 MB"}, {"id": 47, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "숀 도허티", "speaker_role": "", "speaker_affil": "보스턴칼리지 교육 및 정책학 교수[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_13691793077579.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "47_숀 도허티_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 297410, "size_mb": "0.28 MB"}, {"id": 48, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "11:00 - 12:30", "place": "", "session_num": "C-2 세션", "session_title": "일자리가 사라진다: 청년 고용의 새로운 도전", "speaker_name": "이정재", "speaker_role": "", "speaker_affil": "현대경제연구원 교육본부 본부장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14611793077590.pdf", "rel_path": "pdf_files/DAY2_C-2 세션/48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-2 세션/48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "filename": "48_이정재_일자리가 사라진다_ 청년 고용의 새로운 도전.pdf", "folder_name": "DAY2_C-2 세션", "size_bytes": 341675, "size_mb": "0.33 MB"}, {"id": 49, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "천장현", "speaker_role": "", "speaker_affil": "머서코리아 컨설팅 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14141793079612.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "49_천장현_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 20601673, "size_mb": "19.65 MB"}, {"id": 50, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "김지현", "speaker_role": "", "speaker_affil": "SK SUPEX AI위원회 부사장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14151793079701.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "50_김지현_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 9961308, "size_mb": "9.50 MB"}, {"id": 51, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "A-3 세션", "session_title": "Sensemaking을 통한 AI발 인력 재배치", "speaker_name": "안잘리 메논", "speaker_role": "", "speaker_affil": "시벨코 유럽·중동·아프리카(EMEA) 인사(HR) 부사장[*온라인]", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15811793585423.pdf", "rel_path": "pdf_files/DAY2_A-3 세션/51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-3 세션/51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "filename": "51_안잘리 메논_Sensemaking을 통한 AI발 인력 재배치.pdf", "folder_name": "DAY2_A-3 세션", "size_bytes": 860173, "size_mb": "0.82 MB"}, {"id": 52, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "조병영", "speaker_role": "", "speaker_affil": "한양대학교 국어교육과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14261793077724.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "52_조병영_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 346592, "size_mb": "0.33 MB"}, {"id": 53, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "최승필", "speaker_role": "", "speaker_affil": "공독서가 대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14271793077731.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "53_최승필_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 464564, "size_mb": "0.44 MB"}, {"id": 54, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "B-3 세션", "session_title": "생각하는 힘을 기르는 독서·인문 교육", "speaker_name": "함유선", "speaker_role": "", "speaker_affil": "인천교육청 정책기획조정관 장학사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14281793077745.pdf", "rel_path": "pdf_files/DAY2_B-3 세션/54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-3 세션/54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "filename": "54_함유선_생각하는 힘을 기르는 독서·인문 교육.pdf", "folder_name": "DAY2_B-3 세션", "size_bytes": 347167, "size_mb": "0.33 MB"}, {"id": 55, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "보만 스님", "speaker_role": "", "speaker_affil": "대한불교조계종 반야선원 승려", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14381793079749.pdf", "rel_path": "pdf_files/DAY2_C-3세션/55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "55_보만 스님_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 454104, "size_mb": "0.43 MB"}, {"id": 56, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "최진영", "speaker_role": "", "speaker_affil": "소설가", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14391793585814.pdf", "rel_path": "pdf_files/DAY2_C-3세션/56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "56_최진영_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 2560071, "size_mb": "2.44 MB"}, {"id": 57, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "14:00 - 15:30", "place": "", "session_num": "C-3세션", "session_title": "기술의 시대, 인간의 시간을 재설계하다", "speaker_name": "노명우", "speaker_role": "", "speaker_affil": "아주대학교 사회학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14401793077801.pdf", "rel_path": "pdf_files/DAY2_C-3세션/57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-3세션/57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "filename": "57_노명우_기술의 시대, 인간의 시간을 재설계하다.pdf", "folder_name": "DAY2_C-3세션", "size_bytes": 414917, "size_mb": "0.40 MB"}, {"id": 58, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "유주원", "speaker_role": "", "speaker_affil": "애드쉴드 창업자 겸 공동대표", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14071793079914.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "58_유주원_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 4290090, "size_mb": "4.09 MB"}, {"id": 59, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "제이슨 디멜로", "speaker_role": "", "speaker_affil": "미국 로욜라메리마운트대학교(LMU) 경영대학 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14081793079951.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "59_제이슨 디멜로_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 1346528, "size_mb": "1.28 MB"}, {"id": 60, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "A-4 세션", "session_title": "성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다", "speaker_name": "명승은", "speaker_role": "", "speaker_affil": "벤처스퀘어 대표이사", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15241793080007.pdf", "rel_path": "pdf_files/DAY2_A-4 세션/60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_A-4 세션/60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "filename": "60_명승은_성장 VS 복지, 활력과 혁신, 도전정신이 사라지고 있다.pdf", "folder_name": "DAY2_A-4 세션", "size_bytes": 620425, "size_mb": "0.59 MB"}, {"id": 61, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "천현득", "speaker_role": "", "speaker_affil": "서울대학교 과학학과 교수", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14311793077833.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "61_천현득_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 350089, "size_mb": "0.33 MB"}, {"id": 62, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "변순용", "speaker_role": "", "speaker_affil": "서울교육대학교 평생교육원 원장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14321793080376.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "62_변순용_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 6018961, "size_mb": "5.74 MB"}, {"id": 63, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "B-4 세션", "session_title": "안전한 동행을 위한 AI 교육 윤리", "speaker_name": "문정욱", "speaker_role": "", "speaker_affil": "정보통신정책연구원 인공지능정책연구실 실장", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14331793077843.pdf", "rel_path": "pdf_files/DAY2_B-4 세션/63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_B-4 세션/63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "filename": "63_문정욱_안전한 동행을 위한 AI 교육 윤리.pdf", "folder_name": "DAY2_B-4 세션", "size_bytes": 346323, "size_mb": "0.33 MB"}, {"id": 64, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "제인 오", "speaker_role": "", "speaker_affil": "미국 항공우주국(NASA) 제트추진연구소 수석연구위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14301793077820.pdf", "rel_path": "pdf_files/DAY2_C-4세션/64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "64_제인 오_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 287603, "size_mb": "0.27 MB"}, {"id": 65, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "임지성", "speaker_role": "", "speaker_affil": "싱잉비틀 공동창업자", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_14421793077854.pdf", "rel_path": "pdf_files/DAY2_C-4세션/65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "65_임지성_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 321355, "size_mb": "0.31 MB"}, {"id": 66, "day_code": "DAY2", "day_title": "DAY 2 (2026.11.05 목)", "time": "16:00 - 17:30", "place": "", "session_num": "C-4세션", "session_title": "변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까?", "speaker_name": "박재민", "speaker_role": "", "speaker_affil": "배우 겸 방송인, 스포츠 해설위원", "remote_url": "https://ghrforum.hankyung.com/ghrforum_data/debate/2026/2026_15411793080525.pdf", "rel_path": "pdf_files/DAY2_C-4세션/66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "full_path": "C:\\Users\\ralfk\\orca\\workspaces\\work-library\\trumpetfish\\ghrforum_bookshelf\\pdf_files/DAY2_C-4세션/66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "filename": "66_박재민_변화의 한가운데, 당신의 ‘믿을 구석’은 무엇입니까_.pdf", "folder_name": "DAY2_C-4세션", "size_bytes": 1269873, "size_mb": "1.21 MB"}];
+
+  // LocalStorage Key for User-Shared Web PDFs
+  const STORAGE_KEY = 'user_shared_web_pdfs_v1';
+
+  // Sample initial web PDFs for immediate discovery
+  const DEFAULT_WEB_PDFS = [
+    {
+      id: 1001,
+      is_custom: true,
+      day_code: 'WEB',
+      day_title: '🌐 인터넷 공유 PDF 서재',
+      session_num: 'AI 트렌드 리포트',
+      session_title: '국가인공지능전략 정책 동향 및 미래 일자리 보고서',
+      place: '공개 웹 리포트',
+      time: '인터넷 공유',
+      speaker_name: 'NIA 한국지능정보사회진흥원',
+      speaker_role: '리포트',
+      speaker_affil: '지능정보사회 동향 브리프',
+      remote_url: 'https://www.nia.or.kr/common/board/Download.do?bcIdx=26210&cbIdx=86052&fileNo=1',
+      rel_path: 'https://www.nia.or.kr/common/board/Download.do?bcIdx=26210&cbIdx=86052&fileNo=1',
+      size_mb: '공개 웹 PDF',
+      summary: '정부 및 주요 기관에서 제시하는 AI 대전환기 핵심 전략 및 일자리 변화 분석 자료입니다.'
+    },
+    {
+      id: 1002,
+      is_custom: true,
+      day_code: 'WEB',
+      day_title: '🌐 인터넷 공유 PDF 서재',
+      session_num: '글로벌 HR 인사이트',
+      session_title: 'State of the Global Workplace: AI & Employee Engagement',
+      place: 'Gallup Insight',
+      time: '인터넷 공유',
+      speaker_name: 'Gallup Research',
+      speaker_role: '글로벌 조사',
+      speaker_affil: 'Gallup Workplace',
+      remote_url: 'https://www.gallup.com',
+      rel_path: 'https://www.gallup.com',
+      size_mb: '인터넷 자료',
+      summary: '전 세계 160개국 직장인의 몰입도와 AI 도입에 따른 조직 문화 변화를 다룬 글로벌 명저 리포트입니다.'
+    }
+  ];
+
+  function loadCustomPdfs() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_WEB_PDFS));
+      return DEFAULT_WEB_PDFS;
+    }
+    try {
+      return JSON.parse(saved);
+    } catch (e) {
+      return DEFAULT_WEB_PDFS;
+    }
+  }
+
+  function saveCustomPdfs(list) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  }
+
+  let customPdfs = loadCustomPdfs();
+
+  // Handle incoming shared link (hash payload)
+  function checkUrlSharePayload() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#share=')) {
+      try {
+        const b64 = hash.replace('#share=', '');
+        const jsonStr = decodeURIComponent(escape(atob(b64)));
+        const sharedItems = JSON.parse(jsonStr);
+        if (Array.isArray(sharedItems) && sharedItems.length > 0) {
+          let addedCount = 0;
+          sharedItems.forEach(item => {
+            if (!customPdfs.some(c => c.remote_url === item.remote_url)) {
+              item.id = Date.now() + Math.floor(Math.random() * 1000);
+              item.is_custom = true;
+              item.day_code = 'WEB';
+              item.day_title = '🌐 인터넷 공유 PDF 서재';
+              customPdfs.unshift(item);
+              addedCount++;
+            }
+          });
+          if (addedCount > 0) {
+            saveCustomPdfs(customPdfs);
+            showToast(`동료가 공유한 ${addedCount}개의 웹 PDF를 책장에 등록했습니다! 🎉`);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to parse share payload:', err);
+      }
+      // Clean up hash
+      history.replaceState(null, '', window.location.pathname);
+    }
+  }
+
+  checkUrlSharePayload();
+
+  // DOM Elements
   const stage = document.getElementById('bookshelfStage');
   const searchInput = document.getElementById('searchInput');
   const dayTabBtns = document.querySelectorAll('.day-tab-btn');
   const itemCountDisplay = document.getElementById('itemCountDisplay');
+  const badgeAll = document.getElementById('badgeAll');
+  const badgeDay1 = document.getElementById('badgeDay1');
+  const badgeDay2 = document.getElementById('badgeDay2');
+  const badgeWeb = document.getElementById('badgeWeb');
+  const toastBox = document.getElementById('toastBox');
+  const toastMsg = document.getElementById('toastMsg');
+
+  // Modal Elements
+  const modal = document.getElementById('addPdfModal');
+  const openAddModalBtn = document.getElementById('openAddModalBtn');
+  const closeAddModalBtn = document.getElementById('closeAddModalBtn');
+  const cancelAddModalBtn = document.getElementById('cancelAddModalBtn');
+  const addPdfForm = document.getElementById('addPdfForm');
+  const shareMyCollectionBtn = document.getElementById('shareMyCollectionBtn');
 
   let currentDayFilter = 'ALL';
   let searchQuery = '';
-
   const bannerClasses = ['banner-c1', 'banner-c2', 'banner-c3', 'banner-c4', 'banner-c5', 'banner-c6'];
 
+  function showToast(msg) {
+    toastMsg.innerText = msg;
+    toastBox.style.display = 'flex';
+    setTimeout(() => {
+      toastBox.style.display = 'none';
+    }, 2800);
+  }
+
+  function updateBadges() {
+    const totalDay1 = initialCatalog.filter(i => i.day_code === 'DAY1').length;
+    const totalDay2 = initialCatalog.filter(i => i.day_code === 'DAY2').length;
+    const totalWeb = customPdfs.length;
+
+    badgeAll.innerText = initialCatalog.length + totalWeb;
+    badgeDay1.innerText = totalDay1;
+    badgeDay2.innerText = totalDay2;
+    badgeWeb.innerText = totalWeb;
+  }
+
+  function getAllItems() {
+    return [...customPdfs, ...initialCatalog];
+  }
+
   function renderBooks() {
-    const filtered = catalog.filter(it => {
+    updateBadges();
+    const allItems = getAllItems();
+
+    const filtered = allItems.filter(it => {
       const matchDay = (currentDayFilter === 'ALL' || it.day_code === currentDayFilter);
-      const text = `${it.speaker_name} ${it.speaker_affil} ${it.session_title} ${it.session_num} ${it.place}`.toLowerCase();
+      const text = `${it.speaker_name} ${it.speaker_affil} ${it.session_title} ${it.session_num} ${it.place} ${it.summary || ''}`.toLowerCase();
       const matchSearch = !searchQuery || text.includes(searchQuery.toLowerCase());
       return matchDay && matchSearch;
     });
@@ -396,7 +826,7 @@
     itemCountDisplay.innerText = filtered.length;
 
     if (filtered.length === 0) {
-      stage.innerHTML = `<div class="empty-msg">검색 조건과 일치하는 발표 자료가 없습니다.</div>`;
+      stage.innerHTML = `<div class="empty-msg">검색 조건과 일치하는 발표 자료나 공유된 글이 없습니다.</div>`;
       return;
     }
 
@@ -411,6 +841,7 @@
           session_title: it.session_title,
           place: it.place,
           time: it.time,
+          is_web: it.day_code === 'WEB',
           items: []
         };
       }
@@ -423,14 +854,15 @@
     for (const [key, group] of Object.entries(groups)) {
       groupIdx++;
       let placeBadgeClass = 'badge-vista';
-      if (group.place.includes('워커')) placeBadgeClass = 'badge-walker';
-      if (group.place.includes('그랜드')) placeBadgeClass = 'badge-grand';
+      if (group.is_web) placeBadgeClass = 'badge-web';
+      else if (group.place && group.place.includes('워커')) placeBadgeClass = 'badge-walker';
+      else if (group.place && group.place.includes('그랜드')) placeBadgeClass = 'badge-grand';
 
       html += `
         <section class="shelf-section">
           <div class="shelf-header">
             <div class="shelf-title">
-              <span>📖 ${group.session_num}</span>
+              <span>${group.is_web ? '🌐' : '📖'} ${group.session_num}</span>
               <span style="font-weight: 500; font-size: 15px; color: #cbd5e1;">${group.session_title}</span>
             </div>
             <div style="display: flex; gap: 8px; align-items: center;">
@@ -442,36 +874,49 @@
       `;
 
       group.items.forEach((it, bIdx) => {
-        const bClass = bannerClasses[(it.id + groupIdx) % bannerClasses.length];
+        const bClass = it.is_custom ? 'banner-web' : bannerClasses[(it.id + groupIdx) % bannerClasses.length];
+        const isExternal = it.rel_path.startsWith('http');
+        const readLink = isExternal ? it.rel_path : it.rel_path;
+
         html += `
-          <div class="book-card">
+          <div class="book-card" id="card-${it.id}">
             <div class="book-banner ${bClass}">
               <div class="book-id-tag">
-                <span>VOL. ${String(it.id).padStart(2, '0')}</span>
-                <span>${it.day_code}</span>
+                <span>VOL. ${String(it.id).slice(-4)}</span>
+                <span>${it.is_custom ? '🌐 WEB PDF' : it.day_code}</span>
               </div>
               <div class="book-title" title="${it.session_title}">${it.session_title}</div>
             </div>
             <div class="book-body">
               <div class="author-info">
                 <div class="author-name">
-                  👤 ${it.speaker_name}
+                  👤 ${it.speaker_name || '작성자 미상'}
                   ${it.speaker_role ? `<span class="author-role">${it.speaker_role}</span>` : ''}
                 </div>
-                <div class="author-affil">${it.speaker_affil || '소속 정보 없음'}</div>
+                <div class="author-affil">${it.speaker_affil || '출처 정보 없음'}</div>
+                ${it.summary ? `<div class="web-summary">💡 ${it.summary}</div>` : ''}
               </div>
               <div>
                 <div class="book-meta">
-                  <span>📄 PDF (${it.size_mb})</span>
-                  <span>${it.place || '본관'}</span>
+                  <span>📄 ${it.size_mb || 'PDF'}</span>
+                  <span>${it.place || '온라인'}</span>
                 </div>
-                <div class="book-actions" style="margin-top: 10px;">
-                  <a href="${it.rel_path}" target="_blank" class="btn-read">
+                <div class="book-actions">
+                  <a href="${readLink}" target="_blank" rel="noopener noreferrer" class="btn-read">
                     📖 자료 열기
                   </a>
-                  <a href="${it.remote_url}" target="_blank" class="btn-orig" title="원본 웹 링크">
+                  <button class="btn-icon-action" onclick="shareSingleItem(${it.id})" title="이 자료 공유 링크 복사">
                     🔗
-                  </a>
+                  </button>
+                  ${it.is_custom ? `
+                    <button class="btn-icon-action btn-delete" onclick="deleteCustomPdf(${it.id})" title="내 책장에서 삭제">
+                      🗑️
+                    </button>
+                  ` : `
+                    <a href="${it.remote_url}" target="_blank" rel="noopener noreferrer" class="btn-icon-action" title="원본 다운로드 URL">
+                      ⬇️
+                    </a>
+                  `}
                 </div>
               </div>
             </div>
@@ -488,7 +933,135 @@
     stage.innerHTML = html;
   }
 
-  // Events
+  // Share single item function
+  window.shareSingleItem = function(id) {
+    const all = getAllItems();
+    const item = all.find(i => i.id === id);
+    if (!item) return;
+
+    const title = item.session_title;
+    const shareUrl = item.remote_url || window.location.href;
+
+    if (navigator.share) {
+      navigator.share({
+        title: `📚 [추천 자료] ${title}`,
+        text: `${item.speaker_name} - ${title}\n${item.summary || ''}`,
+        url: shareUrl
+      }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast('자료 링크가 클립보드에 복사되었습니다! 📋');
+      }).catch(() => {
+        prompt('자료 링크를 복사하세요:', shareUrl);
+      });
+    }
+  };
+
+  // Delete custom PDF
+  window.deleteCustomPdf = function(id) {
+    if (!confirm('이 자료를 내 서재에서 삭제하시겠습니까?')) return;
+    customPdfs = customPdfs.filter(i => i.id !== id);
+    saveCustomPdfs(customPdfs);
+    renderBooks();
+    showToast('자료가 서재에서 삭제되었습니다.');
+  };
+
+  // Modal Handlers
+  openAddModalBtn.addEventListener('click', () => {
+    modal.classList.add('open');
+  });
+
+  function closeModal() {
+    modal.classList.remove('open');
+    addPdfForm.reset();
+  }
+
+  closeAddModalBtn.addEventListener('click', closeModal);
+  cancelAddModalBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Add PDF Form Submit
+  addPdfForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const url = document.getElementById('inputPdfUrl').value.trim();
+    const title = document.getElementById('inputPdfTitle').value.trim();
+    const speaker = document.getElementById('inputPdfSpeaker').value.trim() || '작성자 미상';
+    const affil = document.getElementById('inputPdfAffil').value.trim() || '공개 웹 자료';
+    const category = document.getElementById('inputPdfCategory').value;
+    const summary = document.getElementById('inputPdfSummary').value.trim();
+
+    if (!url || !title) return;
+
+    const newItem = {
+      id: Date.now(),
+      is_custom: true,
+      day_code: 'WEB',
+      day_title: '🌐 인터넷 공유 PDF 서재',
+      session_num: category,
+      session_title: title,
+      place: affil,
+      time: '인터넷 공유',
+      speaker_name: speaker,
+      speaker_role: '추천자료',
+      speaker_affil: affil,
+      remote_url: url,
+      rel_path: url,
+      size_mb: '웹 링크 PDF',
+      summary: summary
+    };
+
+    customPdfs.unshift(newItem);
+    saveCustomPdfs(customPdfs);
+    closeModal();
+    
+    // Switch to WEB tab or render
+    currentDayFilter = 'WEB';
+    dayTabBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'WEB'));
+    renderBooks();
+
+    showToast('새로운 추천 PDF가 책장에 등록되었습니다! ✨');
+  });
+
+  // Share entire custom collection
+  shareMyCollectionBtn.addEventListener('click', () => {
+    if (customPdfs.length === 0) {
+      alert('공유할 웹 PDF가 없습니다. 먼저 [➕ 인터넷 PDF 공유하기]로 좋은 자료를 등록해 보세요!');
+      return;
+    }
+    try {
+      const minimalData = customPdfs.map(i => ({
+        session_num: i.session_num,
+        session_title: i.session_title,
+        speaker_name: i.speaker_name,
+        speaker_affil: i.speaker_affil,
+        remote_url: i.remote_url,
+        summary: i.summary || ''
+      }));
+      const jsonStr = JSON.stringify(minimalData);
+      const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
+      const shareUrl = `${window.location.origin}${window.location.pathname}#share=${b64}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: '📚 나의 추천 인터넷 PDF 서재 모음',
+          text: `제가 추천하는 웹 PDF ${customPdfs.length}권을 공유합니다. 바로 열어보세요!`,
+          url: shareUrl
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast('내 공유 서재 링크가 복사되었습니다! 팀원이나 동료에게 전달하세요. 🔗');
+        }).catch(() => {
+          prompt('공유 링크를 복사하세요:', shareUrl);
+        });
+      }
+    } catch (err) {
+      alert('공유 링크 생성 중 오류가 발생했습니다.');
+    }
+  });
+
+  // Search and Filter Events
   searchInput.addEventListener('input', (e) => {
     searchQuery = e.target.value.trim();
     renderBooks();
